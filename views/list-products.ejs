@@ -1,0 +1,44 @@
+<%- include('../templates/header') -%>
+<div class="row">
+    <div class="col-md-2">
+        <%- include('../templates/leftnav') -%>
+    </div>
+    <div class="col-md-8">
+<h2><%= hd %></h2>
+<a href="/dashboard"><h4>Back home </h4></a>
+<a href="/product" class="btn btn-sm btn-primary">Add Product</a><br/><br/>
+<table class="table table-dark table-striped">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price.</th>
+        <th>Quantity.</th>
+        <th>Image </th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% products.forEach(function(product){ %>
+        <tr>
+            <td><%= product.productcode %></td>
+            <td><%= product.productname %></td>
+            <td><%= product.price %></td>
+            <td><%= product.availqnty %></td>
+            <td><img  class="responsive-img" style="height: 50px; width: 40px;" src="<%= product.productimage%>"></td>
+            <td>
+                <a href="edit/<%= product.id %>" class="btn btn-sm btn-primary">Edit</a>
+                <a href="delete/<%= product.id %>" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+    </div>
+    <div class="col-md2">
+        <%- include('../templates/rightnav') -%>
+</div>
+</div>
+<div class="footer" style="border-color: blue; height: 10px; width: auto; margin: 2px;">
+    <%- include('../templates/footer') -%>
+</div>

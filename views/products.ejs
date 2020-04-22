@@ -1,0 +1,39 @@
+<%- include('../templates/header') -%>
+<div class="row">
+    <%= typeof msg !='undefined' ? msg: ''%>
+    <div class="col-md-2">
+        <%- include('../templates/leftnav') -%>
+    </div>
+    <div class="col-md-8">
+        <center><h4><%= hd %>  </h4></center>
+        <form  action="/controllers/addproduct-controller" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="productcode">Product Code</label>
+                <input type="text" class="form-control"   name="productcode" placeholder="Product code">
+            </div>
+            <div class="form-group">
+                <label for="productname">Product name</label>
+                <input type="text" class="form-control"  name="productname" placeholder="Product name">
+            </div>
+            <div class="form-group">
+                <label for="price">Product Price</label>
+                <input type="number" class="form-control" name="price" placeholder="Product price">
+            </div>
+            <div class="form-group">
+                <label for="availqnty">Quantity</label>
+                <input type="number" class="form-control" name="availqnty"  placeholder=" Quantity">
+            </div>
+            <div class="form-group">
+                <label for="productimage">Product Image</label>
+                <input type="file"  name="productimage">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-2">
+        <%- include('../templates/rightnav') -%>
+    </div>
+</div>
+<div class="footer" >
+    <%- include('../templates/footer') -%>
+</div>

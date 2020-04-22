@@ -1,0 +1,42 @@
+<%- include('../templates/headerindex') -%>
+<div class="row">
+    <div class="col-md-2">
+       <!-- <%- include('../templates/leftnav') -%> -->
+    </div>
+<div class="col-md-8">
+    <center><h4 style="color:blue;"><%= title%></h4></center>
+    <%= typeof msg !='undefined' ? msg: ''%>
+    <div class="row">
+        <form class="col s8" action="/controllers/register-controller" method="post">
+            <center> <h6><%= hd %></h6></center>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="name" type="text" class="validate">
+                    <label for="email">Full Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="email" type="email" id ="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" name="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <button value="submit" class="btn">Register</button>
+            <h4><a href="/login" >Login</a> </h4>
+        </form>
+
+    </div>
+    <div class="col-md-2">
+   <!--  <%- include('../templates/rightnav') -%> -->
+    </div>
+</div>
+</div>
+<div class="footer">
+    <<%- include ('../templates/footer'); -%>
+</div>

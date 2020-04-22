@@ -1,0 +1,67 @@
+<%- include('../templates/headerindex') -%>
+        <!-- Rendering Products using EJS -->
+    <center><h2><%= hd %></h2></center>
+    <div class="row">
+        <% products.forEach(product => { %>
+        <div class="col s3">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light" style="margin: 20px;padding: 10px;">
+                <img src="<%= product.productimage %>" class="activatior" style="height: 150px; width: 150px;">
+                </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">View Details</span>
+                  </div>
+                 <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">
+                    Product Details<i class="material-icons right">close</i>
+                </span>
+                <p>Code: <%= product.productcode%> <br>
+                   Name: <%= product.productname%> <br>
+                    Price: <%= product.price%><br>
+                    <strong> Qty: <%= product.availqnty%></strong></p>
+                     <a href="#" onclick="checkout()">Add to Cart</a>
+                      </div>
+                <div class="card-action">
+                    <a href="#" onclick="addtocart()">Add to Cart</a>
+                 </div>
+        </div>
+        </div>
+        <% }); %>
+    </div>
+    <div class="footer">
+        <%- include('../templates/footer') -%>
+  </div>
+<script>
+    function checkout()
+    {
+        let item, qnty,price;
+        item=window.prompt('Enter code');
+        qnty=window.prompt('Enter quantity to purchase');
+        if(item=='c23')
+
+        {
+            price=100;
+            alert('Total '+ qnty*price);
+        }
+        else if(item=='c232')
+        {
+            price=50;
+            alert('Total '+ qnty*price);
+
+        }
+        else if(item=='p001')
+        {
+            price=150;
+            alert('Total '+ qnty*price);
+        }
+        else{
+            alert('not enough quantity available');
+        }
+    }
+    function addtocart()
+    {
+        let qnty;
+        qnty=window.prompt('Enter quantity to purchase');
+       alert('ALert ' +qnty +'to Cart');
+    }
+</script>
