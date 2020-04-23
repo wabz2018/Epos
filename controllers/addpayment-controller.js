@@ -23,7 +23,7 @@ class MpesaRequests {
 
         }
         let headers = new HttpHeaders({
-            "Authorization": "basic" + token,
+            "Authorization": "Bearer" + token,
             "content-type": "application/json"
         })
         try {
@@ -44,7 +44,7 @@ class MpesaRequests {
         let credentials = (consumerKey + ":" + consumerSecret).toString('base64')
         var byte = Uint8Array.from(credentials)
         let headers = new HttpHeaders({
-            "Authorization": "basic" + byte.toString,
+            "Authorization": "Basic" + byte.toString,
             "content-type": "application/json"
         })
         try {
